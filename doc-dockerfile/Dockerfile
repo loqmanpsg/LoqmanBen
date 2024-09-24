@@ -26,4 +26,3 @@ EXPOSE 5000
 
 # Commande par défaut pour exécuter l'application
 CMD ["python", "app.py"]
-
