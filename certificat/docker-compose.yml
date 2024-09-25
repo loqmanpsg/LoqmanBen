@@ -1,0 +1,17 @@
+#version: '3.8'  # Met à jour cette ligne car `version` est obsolète
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "443:443"
+    volumes:
+      - ./certificat/certs/server.crt:/etc/nginx/certs/server.crt:ro
+      - ./certificat/certs/server.key:/etc/nginx/certs/server.key:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - certificat_default
+
+networks:
+  certificat_default:
+    driver: bridge
